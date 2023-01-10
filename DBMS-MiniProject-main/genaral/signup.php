@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <style> .err { color: #FF0000; font-size: 0.8rem;} </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/normal.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
-<body class="container">
+<body class="container" style="margin: 10rem auto 10rem auto;">
 
     <?php
+
+        include "config.php";
+
         
         if (isset($_POST["submit"])) {
 
@@ -72,7 +76,6 @@
                 $error_in_form = true; 
             }
 
-            /*
             // telephone number validation
             if (preg_match("/^+[0-9-']$/", $tele)) {
                 $tele_err = "a telephone number can only contain numbers and +";
@@ -82,13 +85,10 @@
                 $tele2_err = "a telephone number can only contain numbers and +";
                 $error_in_form = true; 
             }
-            */
 
             // if there is no errors,
             // add user as normal user
             if (!$error_in_form) {
-
-                include "config.php";
 
                 $user_id = create_id($conn);
                 $user_type = "Normal";
@@ -170,7 +170,7 @@
         <p class="err" > <?php echo $tele_err ?> </p><br>
 
         <input type="submit" name="submit" id="submit" value="Register" class="btn btn-primary">
-        <a href="index.html" class="btn btn-secondary"> Go Back </a>
+        <a href="../index.html" class="btn btn-secondary"> Go Back </a>
 
     </form>
 

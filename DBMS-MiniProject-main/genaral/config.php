@@ -3,9 +3,9 @@
 // configure sql database to use in CRUD operations
 
 $SERVER = "localhost:3306";
-$USERNAME = "root";
-$PASSWD = "1234";
-$DB_NAME = "groupproject";
+$USERNAME = "mohotta";
+$PASSWD = "NatGeo50PEO";
+$DB_NAME = "airport_mgr";
 
 $conn = new mysqli($SERVER, $USERNAME, $PASSWD, $DB_NAME);
 

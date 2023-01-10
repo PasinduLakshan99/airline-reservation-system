@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>view.reservation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/normal.css">
+    <link rel="stylesheet" href="../../styles/styles.css">
 </head>
-<body>
+<body class="container" style="margin: 10rem auto 10rem auto;">
 
     <?php
 
-    include "../config.php";
+    include "../../genaral/config.php";
     session_start();
     $user_id=$_SESSION['user_id'];
     $sql = "SELECT * FROM reservation where user_id='$user_id';";
@@ -38,6 +39,7 @@
             <?php
             
             if ($result->num_rows > 0) {
+
                 while ($row = $result->fetch_assoc()) {
             
             ?>
@@ -51,7 +53,7 @@
                 <td> <?php echo $row["price"]; ?> </td>
                 <td> <?php echo $row["booking_date"]; ?> </td>
                 <td>
-                    <a href="delete.php?id=<?php echo $row["reserv_id"]; ?>" class="btn btn-danger"> Cancel </a>
+                    <a href="cancel.php?id=<?php echo $row["reserv_id"]; ?>" class="btn btn-danger"> Cancel </a>
                 </td>
             
             </tr>

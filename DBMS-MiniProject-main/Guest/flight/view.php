@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>view.flight_detail</title>
+    <title>view.flight</title>
     <link rel="stylesheet" href="../../styles/normal.css">
     <link rel="stylesheet" href="../../styles/styles.css">
+    
 </head>
-<body class="container" style="margin: 10rem auto 10rem auto;">
-
+<body class="container" style="margin: 10rem auto auto auto;">
     <?php
 
     include "../../genaral/config.php";
 
-    $sql = "SELECT * FROM flight_detail;";
+    if (isset($_GET["id"])) {
+        $user_id = $_GET["id"];
+    }
+
+    $today = date("Y-m-d H:i:s");
+
+    $sql = "SELECT * FROM `sheduled_flight` WHERE `time_of_departure` > '$today' ORDER BY `time_of_departure`;";
 
     $result = $conn->query($sql);
 
@@ -23,12 +29,15 @@
     <table class="table">
 
         <thead>
-            <th> Flight Detail ID </th>
+            <th> Flight ID </th>
+            <th> Available Seat Capasity </th>
+            <th> Time of Departure </th>
+            <th> Time of Arrival </th>
+            <th> Delay Time (If Any) </th>
             <th> Plane ID </th>
             <th> Origin </th>
-            <th> Destination </th>
-            <th> Distance (km) </th>
-            <th> Update or Delete </th>
+            <th> Destination</th>
+            <th> Distance </th>
         </thead>
 
         <tbody>
@@ -43,16 +52,16 @@
 
             <tr>
 
-                <td> <?php echo $row["flight_detail_id"]; ?> </td>
+                <td> <?php echo $row["flight_id"]; ?> </td>
+                <td> <?php echo $row["available_seat_cap"]; ?> </td>
+                <td> <?php echo $row["time_of_departure"]; ?> </td>
+                <td> <?php echo $row["time_of_arrival"]; ?> </td>
+                <td> <?php echo $row["delay_time"]; ?> </td>
                 <td> <?php echo $row["plane_id"]; ?> </td>
                 <td> <?php echo $row["origin_id"]; ?> </td>
                 <td> <?php echo $row["dest_id"]; ?> </td>
                 <td> <?php echo $row["distance"]; ?> </td>
-                <td>
-                    <a href="update.php?id=<?php echo $row["flight_detail_id"]; ?>" class="btn btn-primary"> Update </a>
-                    <a href="delete.php?id=<?php echo $row["flight_detail_id"]; ?>" class="btn btn-danger"> Delete </a>
-                </td>
-            
+
             </tr>
 
             <?php
@@ -62,13 +71,11 @@
 
             ?>
 
-
         </tbody>
 
     </table>
 
-    <a href="create.php" class="btn btn-primary"> Create Record </a>
-    <a href="../index.html" class="btn btn-secondary">Go Back</a>
-    
+    <a href="../index.html" class="btn btn-secondary"> Go Back </a>
+
 </body>
 </html>
