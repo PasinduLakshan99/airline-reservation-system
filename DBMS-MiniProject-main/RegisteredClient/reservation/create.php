@@ -7,8 +7,14 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="../../styles/normal.css">
     <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/virgin.css">
 </head>
 <body class="container" style="margin: 10rem auto 10rem auto;">
+
+<div class="h2 text-center">Virgin Airlines</div><br><br>
+    <center><h2 style="font-weight: 800;"> Upcoming Flights </h2></center><br><br>
+
+    <h5 style="font-weight: 800;"> Use "Book" button to preceed booking </h5><br>
 
     <?php
 

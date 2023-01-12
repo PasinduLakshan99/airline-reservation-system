@@ -7,9 +7,12 @@
     <title>view.airport</title>
     <link rel="stylesheet" href="../../styles/styles.css">
     <link rel="stylesheet" href="../../styles/normal.css">
-
+    <link rel="stylesheet" href="../../styles/virgin.css">
 </head>
 <body class="container" style="margin: 10rem auto auto auto;">
+
+    <div class="h2 text-center">Virgin Airlines</div><br><br>
+    <center><h2 style="font-weight: 800;"> Servicing Airports </h2></center><br><br>
 
     <?php
 

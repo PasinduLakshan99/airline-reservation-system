@@ -7,8 +7,12 @@
     <title>view.reservation</title>
     <link rel="stylesheet" href="../../styles/normal.css">
     <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/virgin.css">
 </head>
 <body class="container" style="margin: 10rem auto 10rem auto;">
+
+<div class="h2 text-center">Virgin Airlines</div><br><br>
+    <center><h2 style="font-weight: 800;"> Added Reservations </h2></center><br><br>
 
     <?php
 
@@ -26,7 +30,6 @@
         <thead>
             <th> Reservation ID </th>
             <th> Flight ID </th>
-            <th> User ID </th>
             <th> Seat No </th>
             <th> Price </th>
             <th> Booking Time </th>
@@ -48,7 +51,6 @@
 
                 <td> <?php echo $row["reserv_id"]; ?> </td>
                 <td> <?php echo $row["flight_id"]; ?> </td>
-                <td> <?php echo $row["user_id"]; ?> </td>
                 <td> <?php echo $row["seat_no"]; ?> </td>
                 <td> <?php echo $row["price"]; ?> </td>
                 <td> <?php echo $row["booking_date"]; ?> </td>

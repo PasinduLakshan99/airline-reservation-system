@@ -7,8 +7,12 @@
     <title>add.aircraft_model</title>
     <link rel="stylesheet" href="../../styles/normal.css">
     <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/virgin.css">
 </head>
 <body class="container" style="margin: 10rem auto 10rem auto;">
+
+<div class="h2 text-center">Virgin Airlines</div><br><br>
+    <center><h2 style="font-weight: 800;"> Create New Model </h2></center><br><br>
 
     <?php
     

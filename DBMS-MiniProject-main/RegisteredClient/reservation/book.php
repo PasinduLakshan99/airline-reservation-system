@@ -7,8 +7,12 @@
     <title>Book</title>
     <link rel="stylesheet" href="../../styles/normal.css">
     <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/virgin.css">
 </head>
 <body class="container" style="margin: 10rem auto auto auto;">
+
+<div class="h2 text-center">Virgin Airlines</div><br><br>
+    <center><h2 style="font-weight: 800;"> Confirm Reservation </h2></center><br><br>
     
     <?php
 
@@ -42,7 +46,7 @@
 
     ?>
 
-    <h3> <?php echo "Your Price is : " . $price . "$" ?> </h3>
+    <h5 style="font-weight: 800;"> <?php echo "Your Price is : " . $price . "$" ?> </h5><br>
 
     <form action="" method="POST">
 
@@ -53,8 +57,22 @@
             
             $sql = "SELECT `seat_no` FROM `seat` WHERE `class_id`='$class_id' AND `plane_id` IN (SELECT `plane_id` FROM `flight_detail` WHERE `flight_detail_id` IN (SELECT `flight_detail_id` FROM `flight` WHERE `flight_id`='$flight_id')) AND `seat_no` NOT IN (SELECT `seat_no` FROM `reservation` WHERE `flight_id`=$flight_id);";
             $result = $conn->query($sql);
+
+            $haveSeats = true;
             
-            if ($result->num_rows > 0) {
+            if ($result->num_rows <= 0) {
+
+                $haveSeats = false;
+
+            ?>
+
+            <option selected> No Seats Avialble for Selected Class and Flight! </option>
+
+            <?php
+                
+            }
+
+            else {
 
                 while ($row = $result->fetch_assoc()) {
             
@@ -71,8 +89,31 @@
 
         </select><br>
 
+        <?php 
+
+        if ($haveSeats) {
+
+        ?>
+
         <input type="submit" value="Confirm" class="btn btn-primary" name="submit" id="submit">
         <a href="../index.html" class="btn btn-secondary"> Go Back </a>
+
+        <?php
+        
+        }
+        else {
+        
+        ?>
+
+        <a href="select_class.php" class="btn btn-primary"> Select Another Class </a>
+        <a href="../index.html" class="btn btn-secondary"> Go Back To Main Menu </a>
+
+        <?php
+        
+        }
+        
+        ?>
+
 
     </form>
 
