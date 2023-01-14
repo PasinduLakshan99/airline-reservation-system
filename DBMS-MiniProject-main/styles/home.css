@@ -131,7 +131,7 @@ a:hover {
 }
 
 .btn.btn-block {
-    border-radius: 20px;
+    border-radius: 0.375rem;
     background-color: #400485;
     color: #fff
 }
