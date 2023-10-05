@@ -35,4 +35,4 @@ we added 11 tables to work out whole system
 
 In admin side we added CRUD operations to all tables mentioned above. CRUD operations of reservations table is responsibility of client side.
 
-           
+contact : kumudu.20@cse.mrt.ac.lk or pasinduf.20@cse.mrt.ac.lk for anything regarding to this    
