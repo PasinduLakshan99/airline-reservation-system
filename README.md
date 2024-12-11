@@ -1,4 +1,4 @@
-# DBMS (CS3043) - MiniProject
+# DBMS (CS3043) - Airline Reservation System
 
 ## Basic Idea
 
